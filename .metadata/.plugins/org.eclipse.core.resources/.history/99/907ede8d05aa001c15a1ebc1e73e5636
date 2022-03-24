@@ -1,0 +1,22 @@
+package application;
+
+public class ARS {
+
+	 private static ARS single_instance = null;
+	 
+	    // Declaring a variable of type String
+	    
+	 
+	    // Static method
+	    // Static method to create instance of Singleton class
+	    public static ARS getInstance()
+	    {
+	        if (single_instance == null)
+	            single_instance = new ARS();
+	 
+	        return single_instance;
+	    }	
+	
+	
+	
+}
