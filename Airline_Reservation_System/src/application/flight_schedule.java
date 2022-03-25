@@ -75,8 +75,6 @@ public class flight_schedule implements Initializable{
 		tableView.getColumns().add(Flight_Date);
 		tableView.getColumns().add(Departure_Time);
 		tableView.getColumns().add(Arrival_Time);
-		addButtonToTable();
-		
 		for(int i = 0; i < ARS.getInstance().Flight_list.size(); i++)
 		{
 			String[] stringarray = ARS.getInstance().Flight_list.get(i).displayFlights().split("\n");
@@ -88,70 +86,7 @@ public class flight_schedule implements Initializable{
 			}
 		}
 	
-	private void addButtonToTable() {
-		
 	
-        TableColumn<Flight, Void> colBtn = new TableColumn("Button");
-
-        Callback<TableColumn<Flight, Void>, TableCell<Flight, Void>> cellFactory = new Callback<TableColumn<Flight, Void>, TableCell<Flight, Void>>() {
-        	
-            @Override
-            public TableCell<Flight, Void> call(final TableColumn<Flight, Void> param) {
-                final TableCell<Flight, Void> cell = new TableCell<Flight, Void>() {
-
-                    private final Button btn = new Button("Book");
-
-                    {
-                    	
-                        btn.setOnAction((ActionEvent event) -> {
-                        	try {
-                        		
-								/*
-								 * for (int i = 0; i < tableView.getItems().size(); i++) { if
-								 * (tableView.getItems().get(i).getFlightID() == 22) {
-								 * System.out.println("Selected Index : "+i); } }
-								 */
-                        		
-                        		String a=tableView.getColumns().get(4).getCellObservableValue(0).getValue().toString(); 
-                        		System.out.print(a);
-                        		
-								root = FXMLLoader.load(getClass().getResource("Home.fxml"));
-								stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-	                    		scene = new Scene(root);
-	                    		stage.setScene(scene);
-	                    		stage.show();
-							} catch (IOException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-                    		
-                        });
-                    }
-
-                    @Override
-                    public void updateItem(Void item, boolean empty) {
-                        super.updateItem(item, empty);
-                        if (empty) {
-                            setGraphic(null);
-                        } else {
-                        	
-                            setGraphic(btn);
-                            colBtn.setStyle("-fx-background-color:black");
-                            btn.setStyle("-fx-background-color: #2ac451");
-                            btn.setStyle("-fx-text-fill: #000000");
-                        }
-                    }
-                };
-               // System.out.println("hello");
-                return cell;
-            }
-            
-        };
-
-        colBtn.setCellFactory(cellFactory);
-
-        tableView.getColumns().add(colBtn);
-	}
 
 	
 	public void switchToHome(MouseEvent event) throws IOException {

@@ -67,4 +67,10 @@ public class Customer {
 	public void setCustomer_ID(int customer_ID) {
 		Customer_ID = customer_ID;
 	}
+	
+	public String GetCustomer()
+	{
+		return (Name + "," + Address + "," + Gender + "," + Phone + "," + Username + "," + Password + "," + Age + "," + Customer_ID);
+		
+	}
 }

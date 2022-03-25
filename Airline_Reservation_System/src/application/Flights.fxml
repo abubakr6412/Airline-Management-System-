@@ -5,14 +5,17 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Blend?>
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -20,7 +23,7 @@
    <children>
       <Pane layoutX="-3.0" prefHeight="644.0" prefWidth="1103.0">
          <children>
-            <TableView fx:id="tableView" layoutX="29.0" layoutY="228.0" prefHeight="383.0" prefWidth="1020.0" style="-fx-background-color: #02030A;" stylesheets="@table.css">
+            <TableView fx:id="tableView" layoutX="37.0" layoutY="164.0" prefHeight="385.0" prefWidth="1036.0" style="-fx-background-color: #02030A; -fx-border-image-insets: 0px 0px 1px 0px;" stylesheets="@table.css">
               <columns>
                 <TableColumn fx:id="FlightID" prefWidth="93.60003662109375" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Flight ID" />
                 <TableColumn fx:id="capacity" prefWidth="113.5999755859375" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Capacity" />
@@ -29,10 +32,10 @@
                   <TableColumn fx:id="Destination" prefWidth="134.39996337890625" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Destination" />
                   <TableColumn fx:id="Flight_Date" prefWidth="152.00006103515625" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Flight Date" />
                   <TableColumn fx:id="Departure_Time" prefWidth="134.4000244140625" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Departure Time" />
-                  <TableColumn fx:id="Arrival_Time" prefWidth="180.20001220703125" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Arrival Time" />
+                  <TableColumn fx:id="Arrival_Time" prefWidth="159.20001220703125" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Arrival Time" />
               </columns>
             </TableView>
-            <Text fill="WHITE" layoutX="313.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flight Schedule" textAlignment="CENTER" wrappingWidth="532.4904174804688">
+            <Text fill="WHITE" layoutX="300.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flight Schedule" textAlignment="CENTER" wrappingWidth="532.4904174804688">
                <font>
                   <Font name="Engravers MT" size="31.0" />
                </font>
@@ -116,12 +119,12 @@
                      </font>
                   </Button>
                </children></Pane>
-            <ImageView fitHeight="64.0" fitWidth="82.0" layoutX="272.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="42.0" fitWidth="64.0" layoutX="293.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../images/plane.png" />
                </image>
             </ImageView>
-            <HBox alignment="CENTER_LEFT" layoutX="22.0" layoutY="211.0" prefHeight="42.0" prefWidth="1042.0" spacing="70.0" style="-fx-background-color: #02030A; -fx-border-color: Blue;">
+            <HBox alignment="CENTER_LEFT" layoutX="31.0" layoutY="149.0" prefHeight="42.0" prefWidth="1042.0" spacing="70.0" style="-fx-background-color: #02030A; -fx-border-color: Blue;">
                <children>
                   <Label text="Fligh ID" textFill="#e7e5e5">
                      <HBox.margin>
@@ -155,6 +158,16 @@
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Arrival Time" />
                </children>
             </HBox>
+            <TextField layoutX="60.0" layoutY="585.0" prefHeight="26.0" prefWidth="211.0" promptText="Enter Flight ID" styleClass="text-field" stylesheets="@textfield.css" />
+            <Button layoutX="287.0" layoutY="585.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="132.0" style="-fx-background-color: #2ac451;" text="Proceed Booking">
+               <font>
+                  <Font name="Arial Black" size="12.0" />
+               </font>
+               <effect>
+                  <Reflection fraction="0.66" topOpacity="0.43" />
+               </effect>
+            </Button>
+            <Line endX="988.199951171875" layoutX="115.0" layoutY="568.0" startX="-108.80000305175781" stroke="#665e5e" />
          </children>
       </Pane>
    </children>
