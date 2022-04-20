@@ -46,7 +46,7 @@ public class Sprint1_Testcases {
 	@Test
 	public void AddFlight() {
 		ARS tempclass = new ARS();
-		Flight tempFlight = new Flight(4002, 120, "Islamabad", "Karachi", "A-330", "25-03-22", "08:30", "11:30");
+		Flight tempFlight = new Flight(4002, 120, "Islamabad", "Karachi", "A-330", "25-03-22", "08:30 AM", "11:30 PM","50,000 PKR");
 
 		tempclass.Flight_list.add(tempFlight);
 

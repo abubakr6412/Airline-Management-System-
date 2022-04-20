@@ -21,9 +21,11 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -50,6 +52,11 @@ public class menu implements Initializable{
 	
 	 @FXML
 	 private VBox pnItems = null;
+	 
+	 @FXML
+	 private ImageView image;
+	 @FXML
+	 private Text txt;
 	 
 	 @FXML
 		TableView<menushow> tableView = new TableView<menushow>();
@@ -79,7 +86,7 @@ public class menu implements Initializable{
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
-		id1.setText("ID: " + Integer.toString(ARS.getInstance().Customer_list.get(0).getCustomer_ID()));
+		id1.setText("ID: " + Integer.toString(tempStatic.LoginID));
 		translateAnimation(0.5,pane2,851);
 		translateAnimation(0.5,pane3,851);
         
@@ -104,6 +111,16 @@ public class menu implements Initializable{
 					String[] tokens = stringarray[j].split(",");
 					tableView.getItems().add(new menushow(tokens[0], tokens[1],tokens[2], tokens[3], tokens[4]));
 				}
+		}
+		
+		if (tempStatic.notify == true) {
+			image.setVisible(true);
+			txt.setVisible(true);
+		}
+		else
+		{
+			image.setVisible(false);
+			txt.setVisible(false);
 		}
 	}
 
@@ -154,6 +171,43 @@ public class menu implements Initializable{
 		stage.setScene(scene);
 		stage.show();
 	}
+    
+   public void signout(MouseEvent event) throws IOException {
+		
+		root = FXMLLoader.load(getClass().getResource("login.fxml"));
+		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+   
+   public void notification(MouseEvent event) throws IOException {
+		
+ 		root = FXMLLoader.load(getClass().getResource("Notification.fxml"));
+ 		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+ 		scene = new Scene(root);
+ 		stage.setScene(scene);
+ 		stage.show();
+ 	}
+   
+   public void complain(MouseEvent event) throws IOException {
+		
+		root = FXMLLoader.load(getClass().getResource("complain.fxml"));
+		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+   
+   public void profile(MouseEvent event) throws IOException {
+		
+		root = FXMLLoader.load(getClass().getResource("profile.fxml"));
+		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+   
 	
 
 	

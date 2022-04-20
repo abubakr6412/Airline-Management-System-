@@ -46,4 +46,8 @@ public class Booking {
 		System.out.println("Booking ID: "+Booking_ID+" Customer ID: "+Customer_ID+" Num Seats: "+Num_Seats+" Flight ID: "+Flight_ID);
 	}
 	
+	public String string_Booking() {
+		return(Booking_ID+","+Customer_ID+","+Num_Seats+","+Flight_ID);
+	}
+	
 }

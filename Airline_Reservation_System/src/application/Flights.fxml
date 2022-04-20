@@ -23,16 +23,17 @@
    <children>
       <Pane layoutX="-3.0" prefHeight="644.0" prefWidth="1103.0">
          <children>
-            <TableView fx:id="tableView" layoutX="37.0" layoutY="164.0" prefHeight="385.0" prefWidth="1036.0" style="-fx-background-color: #02030A; -fx-border-image-insets: 0px 0px 1px 0px;" stylesheets="@table.css">
+            <TableView fx:id="tableView" layoutX="23.0" layoutY="162.0" prefHeight="387.0" prefWidth="1054.0" style="-fx-background-color: #02030A;" stylesheets="@table.css">
               <columns>
                 <TableColumn fx:id="FlightID" prefWidth="93.60003662109375" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Flight ID" />
-                <TableColumn fx:id="capacity" prefWidth="113.5999755859375" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Capacity" />
-                  <TableColumn fx:id="Plane_Type" prefWidth="117.5999755859375" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Plane_Type" />
-                  <TableColumn fx:id="Source" prefWidth="128.0" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Origin" />
-                  <TableColumn fx:id="Destination" prefWidth="134.39996337890625" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Destination" />
-                  <TableColumn fx:id="Flight_Date" prefWidth="152.00006103515625" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Flight Date" />
-                  <TableColumn fx:id="Departure_Time" prefWidth="134.4000244140625" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Departure Time" />
-                  <TableColumn fx:id="Arrival_Time" prefWidth="159.20001220703125" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Arrival Time" />
+                <TableColumn fx:id="capacity" prefWidth="92.00003814697266" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Capacity" />
+                  <TableColumn fx:id="Plane_Type" prefWidth="112.7999267578125" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Plane_Type" />
+                  <TableColumn fx:id="Source" prefWidth="105.60003662109375" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Origin" />
+                  <TableColumn fx:id="Destination" prefWidth="108.79995727539062" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Destination" />
+                  <TableColumn fx:id="Flight_Date" prefWidth="108.79998779296875" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Flight Date" />
+                  <TableColumn fx:id="Departure_Time" prefWidth="130.4000244140625" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Departure Time" />
+                  <TableColumn fx:id="Arrival_Time" prefWidth="151.20001220703125" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Arrival Time" />
+                  <TableColumn fx:id="Price" prefWidth="153.5999755859375" style="-fx-background-color: #02030A; -fx-border-color: #02030A;" styleClass="table-coloumn" text="Price" />
               </columns>
             </TableView>
             <Text fill="WHITE" layoutX="300.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Flight Schedule" textAlignment="CENTER" wrappingWidth="532.4904174804688">
@@ -128,7 +129,7 @@
                <children>
                   <Label text="Fligh ID" textFill="#e7e5e5">
                      <HBox.margin>
-                        <Insets left="25.0" />
+                        <Insets left="25.0" right="-25.0" />
                      </HBox.margin>
                   </Label>
                   <Label text="Capacity" textFill="#e7e5e5">
@@ -136,30 +137,38 @@
                         <Insets />
                      </HBox.margin>
                   </Label>
-                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="45.0" text="Origin" textAlignment="CENTER" textFill="#e7e5e5">
+                  <Label alignment="CENTER" prefHeight="18.0" prefWidth="66.0" text="Destination" textAlignment="CENTER" textFill="#e7e5e5">
                      <HBox.margin>
-                        <Insets />
+                        <Insets left="-25.0" />
                      </HBox.margin>
                   </Label>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Plane Type">
                      <HBox.margin>
-                        <Insets />
+                        <Insets left="-15.0" />
                      </HBox.margin></Text>
-                  <Label text="Desitination" textFill="#e7e5e5">
+                  <Label text="Origin" textFill="#e7e5e5">
                      <HBox.margin>
-                        <Insets />
+                        <Insets left="-25.0" />
                      </HBox.margin>
                   </Label>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Flight Date">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin></Text>
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Departure Time" />
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Departure Time">
+                     <HBox.margin>
+                        <Insets left="-30.0" />
+                     </HBox.margin></Text>
                   <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Arrival Time" />
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Price">
+                     <HBox.margin>
+                        <Insets left="30.0" />
+                     </HBox.margin>
+                  </Text>
                </children>
             </HBox>
-            <TextField layoutX="60.0" layoutY="585.0" prefHeight="26.0" prefWidth="211.0" promptText="Enter Flight ID" styleClass="text-field" stylesheets="@textfield.css" />
-            <Button layoutX="287.0" layoutY="585.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="132.0" style="-fx-background-color: #2ac451;" text="Proceed Booking">
+            <TextField fx:id="rem" layoutX="60.0" layoutY="578.0" prefHeight="26.0" prefWidth="211.0" promptText="Enter Flight ID" styleClass="text-field" stylesheets="@textfield.css" />
+            <Button layoutX="508.0" layoutY="578.0" mnemonicParsing="false" onMouseClicked="#switchToViewbooking" prefHeight="26.0" prefWidth="132.0" style="-fx-background-color: #2ac451;" text="Proceed Booking">
                <font>
                   <Font name="Arial Black" size="12.0" />
                </font>
@@ -168,6 +177,8 @@
                </effect>
             </Button>
             <Line endX="988.199951171875" layoutX="115.0" layoutY="568.0" startX="-108.80000305175781" stroke="#665e5e" />
+            <Label fx:id="check" layoutX="60.0" layoutY="612.0" prefHeight="17.0" prefWidth="435.0" textFill="WHITE" />
+            <TextField fx:id="seat" layoutX="286.0" layoutY="578.0" prefHeight="26.0" prefWidth="211.0" promptText="Enter Seat Number" styleClass="text-field" stylesheets="@textfield.css" />
          </children>
       </Pane>
    </children>

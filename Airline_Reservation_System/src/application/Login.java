@@ -54,7 +54,7 @@ public class Login extends Application implements Runnable, Initializable {
 	@FXML
 	private PasswordField password = new PasswordField();
 	@FXML
-	private Text invetory1 = new Text();;
+	private Text Address = new Text();;
 	@FXML
 	private Text management1 = new Text();;
 	@FXML
@@ -86,7 +86,7 @@ public class Login extends Application implements Runnable, Initializable {
 	@FXML
 	private TextField password1 = new TextField();;
 	@FXML
-	private TextField email = new TextField();;
+	private TextField address = new TextField();;
 	@FXML
 	private ImageView emailicon = new ImageView();
 	@FXML
@@ -97,10 +97,6 @@ public class Login extends Application implements Runnable, Initializable {
 	private Label wrongpass = new Label();
 	@FXML
 	private Label create = new Label();
-	@FXML
-	private TextField deptfield = new TextField();
-	@FXML
-	private ImageView deptimage = new ImageView();;
 	@FXML
 	private Text name = new Text();;
 	@FXML
@@ -146,10 +142,7 @@ public class Login extends Application implements Runnable, Initializable {
 		username.setVisible(true);
 		password.setVisible(true);
 		create.setVisible(false);
-		invetory1.setVisible(false);
 		management1.setVisible(false);
-		deptfield.setVisible(false);
-		deptimage.setVisible(false);
 		system1.setVisible(false);
 		login2.setVisible(false);
 		image1.setVisible(false);
@@ -157,7 +150,8 @@ public class Login extends Application implements Runnable, Initializable {
 		pass1.setVisible(false);
 		username1.setVisible(false);
 		password1.setVisible(false);
-		email.setVisible(false);
+		Address.setVisible(false);
+		address.setVisible(false);
 		emailicon.setVisible(false);
 		noAccount1.setVisible(false);
 		sign.setVisible(false);
@@ -186,6 +180,16 @@ public class Login extends Application implements Runnable, Initializable {
 		slide.play();
 
 		layer2.setTranslateX(-850);
+		
+		choicebox.getItems().addAll(disc);
+		choicebox.setOnMouseClicked(arg0 -> {
+			try {
+				signup(arg0);
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
 
 		// choicebox.setOnAction(this::dispfinal);
 
@@ -204,11 +208,10 @@ public class Login extends Application implements Runnable, Initializable {
 		wrongpass.setVisible(false);
 		additionaltext.setVisible(false);
 
-		deptfield.setVisible(true);
-		deptimage.setVisible(true);
+		Address.setVisible(true);
+		address.setVisible(true);
 		create.setVisible(true);
 		img.setVisible(true);
-		invetory1.setVisible(true);
 		management1.setVisible(true);
 		system1.setVisible(true);
 		login2.setVisible(true);
@@ -217,7 +220,6 @@ public class Login extends Application implements Runnable, Initializable {
 		pass1.setVisible(true);
 		username1.setVisible(true);
 		password1.setVisible(true);
-		email.setVisible(true);
 		emailicon.setVisible(true);
 		noAccount1.setVisible(true);
 		sign.setVisible(true);
@@ -270,9 +272,8 @@ public class Login extends Application implements Runnable, Initializable {
 		additionaltext.setVisible(true);
 
 		create.setVisible(false);
-		deptfield.setVisible(false);
-		deptimage.setVisible(false);
-		invetory1.setVisible(false);
+		Address.setVisible(false);
+		address.setVisible(false);
 		management1.setVisible(false);
 		system1.setVisible(false);
 		login2.setVisible(false);
@@ -281,7 +282,6 @@ public class Login extends Application implements Runnable, Initializable {
 		pass1.setVisible(false);
 		username1.setVisible(false);
 		password1.setVisible(false);
-		email.setVisible(false);
 		emailicon.setVisible(false);
 		noAccount1.setVisible(false);
 		sign.setVisible(false);
@@ -303,46 +303,100 @@ public class Login extends Application implements Runnable, Initializable {
 	}
 
 	public void CheckLogin(MouseEvent event) throws IOException {
-	
-			
-		 // Customer login
-         if (ARS.getInstance().Customer_list.get(0).getUsername().equals(username.getText()) && password.getText().equals(ARS.getInstance().Customer_list.get(0).getPassword())) 
-          {
-		     	 root = FXMLLoader.load(getClass().getResource("Home.fxml"));
-		         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			     scene = new Scene(root);
-			     stage.setScene(scene);
-			     stage.show();
-	       }
-         
-         //Admin login
-         if (ARS.getInstance().Admin_list.get(0).getUsername().equals(username.getText()) && password.getText().equals(ARS.getInstance().Admin_list.get(0).getPassword())) 
-         {
-		     	 root = FXMLLoader.load(getClass().getResource("Home.fxml"));
-		         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			     scene = new Scene(root);
-			     stage.setScene(scene);
-			     stage.show();
-	       }
-         
-         //FDO login
-         if (ARS.getInstance().FDO_list.get(0).getUsername().equals(username.getText()) && password.getText().equals(ARS.getInstance().FDO_list.get(0).getPassword())) 
-         {
-		     	 root = FXMLLoader.load(getClass().getResource("Home.fxml"));
-		         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-			     scene = new Scene(root);
-			     stage.setScene(scene);
-			     stage.show();
-	       }
-	
+
+		// Customer login
+		for (int i = 0; i < ARS.getInstance().Customer_list.size(); i++) {
+
+			if (ARS.getInstance().Customer_list.get(i).getUsername().equals(username.getText())
+					&& password.getText().equals(ARS.getInstance().Customer_list.get(i).getPassword())) {
+				tempStatic.LoginID = ARS.getInstance().Customer_list.get(i).getCustomer_ID();
+				root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+				stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+			}
 
 		}
+
+		for (int i = 0; i < ARS.getInstance().Customer_list.size(); i++) {
+
+			if (!ARS.getInstance().Customer_list.get(i).getUsername().equals(username.getText())
+					|| !password.getText().equals(ARS.getInstance().Customer_list.get(i).getPassword())) {
+				wrongpass.setText("Username or Password Incorrect");
+			}
+		}
+
+		// Admin login
+
+		for (int i = 0; i < ARS.getInstance().Admin_list.size(); i++) {
+
+			if (ARS.getInstance().Admin_list.get(i).getUsername().equals(username.getText())
+					&& password.getText().equals(ARS.getInstance().Admin_list.get(i).getPassword())) {
+				
+				tempStatic.LoginID = ARS.getInstance().Admin_list.get(i).getAdmin_ID();
+				root = FXMLLoader.load(getClass().getResource("adminMenu.fxml"));
+				stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+				scene = new Scene(root);
+				stage.setScene(scene);
+				stage.show();
+			}
+		}
+		
+		for (int i = 0; i < ARS.getInstance().Admin_list.size(); i++) {
+
+			if (!ARS.getInstance().Admin_list.get(i).getUsername().equals(username.getText()) || !password.getText().equals(ARS.getInstance().Admin_list.get(i).getPassword())) {
+				wrongpass.setText("Username or Password Incorrect");
+			}
+		}
+
+		// FDO login
+		for (int i = 0; i < ARS.getInstance().FDO_list.size(); i++) {
+		   
+			if (ARS.getInstance().FDO_list.get(i).getUsername().equals(username.getText())
+				&& password.getText().equals(ARS.getInstance().FDO_list.get(i).getPassword())) {
+				
+			tempStatic.LoginID = ARS.getInstance().FDO_list.get(i).getFDO_ID();
+			root = FXMLLoader.load(getClass().getResource("FDOmenu.fxml"));
+			stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		  }
+		}
+		
+		for (int i = 0; i < ARS.getInstance().FDO_list.size(); i++) {
+			   
+			if (!ARS.getInstance().FDO_list.get(i).getUsername().equals(username.getText())
+				|| !password.getText().equals(ARS.getInstance().FDO_list.get(i).getPassword())) {
+				wrongpass.setText("Username or Password Incorrect");
+		  }
+		}
+
+	}
 
 	// ---------------------------------------Sign
 	// Up------------------------------------------
 
 	public void signup(MouseEvent event) throws IOException {
+       
+		String name = name1.getText();
+		String Address = address.getText();
+		String age = age1.getText();
+		String number = phone1.getText();
+		String user = username1.getText();
+		String pass = password1.getText();
+		String choice = choicebox.getValue();
+		
+		int cid = 0;
+		for (int i = 0; i < ARS.getInstance().Customer_list.size(); i++) {
 
+			cid = ARS.getInstance().Customer_list.get(i).getCustomer_ID();
+		}
+
+		cid = cid + 1;
+		ARS.getInstance().AddCustomer(name, Address, age, choice, user, pass, cid, cid);
+		create.setText("Account Successfully created! Please login");
 	}
 
 	@Override

@@ -4,10 +4,10 @@ public class Flight {
 
 	
 	private int FlightID,capacity;
-	private String Source,Plane_Type,Destination,Flight_Date,Departure_Time,Arrival_Time;
+	private String Source,Plane_Type,Destination,Flight_Date,Departure_Time,Arrival_Time,Price;
 	
 	
-	Flight(int FID,int cap,String src,String dest,String ptype,String date,String depttime,String arrivaltime){
+	Flight(int FID,int cap,String src,String dest,String ptype,String date,String depttime,String arrivaltime, String price){
 		FlightID=FID;
 		capacity=cap;
 		Source=src;
@@ -16,6 +16,7 @@ public class Flight {
 		Flight_Date=date;
 		Departure_Time=depttime;
 		Arrival_Time=arrivaltime;
+		Price = price;
 		
 	}
 	public int getFlightID() {
@@ -67,7 +68,14 @@ public class Flight {
 		Plane_Type = plane_Type;
 	}
 	
+	public String getPrice() {
+		return Price;
+	}
+	public void setPrice(String price) {
+		Price = price;
+	}
+	
 	public String displayFlights() {
-		return (Integer.toString(FlightID) + "," +Integer.toString(capacity) + "," + Plane_Type+ "," +Source+ "," +Destination+ "," +Flight_Date+ "," +Departure_Time+ "," +Arrival_Time);
+		return (Integer.toString(FlightID) + "," +Integer.toString(capacity) + "," + Plane_Type+ "," +Source+ "," +Destination+ "," +Flight_Date+ "," +Departure_Time+ "," +Arrival_Time+","+Price);
 	}
 }

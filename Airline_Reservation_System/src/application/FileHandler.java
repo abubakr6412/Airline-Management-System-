@@ -88,7 +88,7 @@ public class FileHandler {
 				String[] split = line.split(",");
 				// use the data here
 				Flight temp = new Flight(Integer.parseInt(split[0]), Integer.parseInt(split[1]), split[2], split[3],
-						split[4], split[5], split[6], split[7]);
+						split[4], split[5], split[6], split[7],split[8]);
 				Flight_list.add(temp);
 			}
 		} catch (FileNotFoundException e) {
@@ -166,6 +166,27 @@ public class FileHandler {
 			e.printStackTrace();
 		}
 		return menushow_list;
+
+	}
+	ArrayList<Complain> Populate_Complain(ArrayList<Complain> Complain_list) {
+
+		try (BufferedReader br = new BufferedReader(
+				new InputStreamReader(new FileInputStream("src\\application\\complain.txt"), StandardCharsets.UTF_8))) {
+			String line;
+			while ((line = br.readLine()) != null) {
+				String[] split = line.split(",");
+				// use the data here
+				Complain temp = new Complain(Integer.parseInt(split[0]), split[1]);
+				Complain_list.add(temp);
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return Complain_list;
 
 	}
 

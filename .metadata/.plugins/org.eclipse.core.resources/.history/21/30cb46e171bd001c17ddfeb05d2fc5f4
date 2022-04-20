@@ -1,0 +1,163 @@
+package application;
+
+import java.util.ArrayList;
+
+public class ARS {
+
+	private static ARS single_instance = null;
+
+	public static ARS getInstance() {
+		if (single_instance == null)
+			single_instance = new ARS();
+
+		return single_instance;
+	}
+
+	// Populating the classes
+	ArrayList<FDO> FDO_list = new ArrayList<FDO>();
+	ArrayList<Admin> Admin_list = new ArrayList<Admin>();
+	ArrayList<Customer> Customer_list = new ArrayList<Customer>();
+	ArrayList<Flight> Flight_list = new ArrayList<Flight>();
+	ArrayList<Booking> Booking_list = new ArrayList<Booking>();
+	ArrayList<Seat> Seat_list = new ArrayList<Seat>();
+	ArrayList<menushow> menushow_list = new ArrayList<menushow>();
+
+	FileHandler F_Handler = new FileHandler();
+
+	void Populate() {
+		FDO_list = F_Handler.Populate_FDO(FDO_list);
+		Admin_list = F_Handler.Populate_Admin(Admin_list);
+		Customer_list = F_Handler.Populate_Customer(Customer_list);
+		Flight_list = F_Handler.Populate_Flight(Flight_list);
+		Booking_list = F_Handler.Populate_Bookings(Booking_list);
+		Seat_list = F_Handler.Populate_Seats(Seat_list);
+		menushow_list = F_Handler.Populate_menushow(menushow_list);
+
+	}
+
+	void EditFlight(int FlightID, int cap, String src, String dest, String ptype, String date, String depttime,String arrivaltime,String price) {
+		for (int i = 0; i < Flight_list.size(); i++) {
+			
+			if (FlightID == Flight_list.get(i).getFlightID()) {
+				
+				if(cap == 0) {
+					
+					Flight_list.get(i).setSource(src);
+					Flight_list.get(i).setDestination(dest);
+					Flight_list.get(i).setFlight_Date(date);
+					Flight_list.get(i).setDeparture_Time(depttime);
+					Flight_list.get(i).setArrival_Time(arrivaltime);
+					Flight_list.get(i).setPrice(price);
+				}
+				
+				if(src.equals(null)) {
+					
+					Flight_list.get(i).setCapacity(cap);
+					Flight_list.get(i).setDestination(dest);
+					Flight_list.get(i).setFlight_Date(date);
+					Flight_list.get(i).setDeparture_Time(depttime);
+					Flight_list.get(i).setArrival_Time(arrivaltime);
+					Flight_list.get(i).setPrice(price);
+				}
+				if(dest.equals(null)) {
+					
+					Flight_list.get(i).setCapacity(cap);
+					Flight_list.get(i).setSource(src);
+					Flight_list.get(i).setFlight_Date(date);
+					Flight_list.get(i).setDeparture_Time(depttime);
+					Flight_list.get(i).setArrival_Time(arrivaltime);
+					Flight_list.get(i).setPrice(price);
+				}
+				
+                if(date.equals(null)) {
+                	
+                	Flight_list.get(i).setCapacity(cap);
+    				Flight_list.get(i).setSource(src);
+    				Flight_list.get(i).setDestination(dest);
+    				Flight_list.get(i).setDeparture_Time(depttime);
+    				Flight_list.get(i).setArrival_Time(arrivaltime);
+    				Flight_list.get(i).setPrice(price);
+                }
+                
+                if(depttime.equals(null)) {
+                	
+                	Flight_list.get(i).setCapacity(cap);
+    				Flight_list.get(i).setSource(src);
+    				Flight_list.get(i).setDestination(dest);
+    				Flight_list.get(i).setFlight_Date(date);
+    				Flight_list.get(i).setArrival_Time(arrivaltime);
+    				Flight_list.get(i).setPrice(price);
+                }
+                
+                if(arrivaltime.equals(null)) {
+                	
+                	Flight_list.get(i).setCapacity(cap);
+    				Flight_list.get(i).setSource(src);
+    				Flight_list.get(i).setDestination(dest);
+    				Flight_list.get(i).setFlight_Date(date);
+    				Flight_list.get(i).setDeparture_Time(depttime);
+    				Flight_list.get(i).setArrival_Time(arrivaltime);
+    				Flight_list.get(i).setPrice(price);
+                }
+                if(price.equals(null)) {
+                	
+                	Flight_list.get(i).setCapacity(cap);
+    				Flight_list.get(i).setSource(src);
+    				Flight_list.get(i).setDestination(dest);
+    				Flight_list.get(i).setFlight_Date(date);
+    				Flight_list.get(i).setDeparture_Time(depttime);
+    				Flight_list.get(i).setArrival_Time(arrivaltime);
+                }
+                
+                if(depttime.equals(null) && arrivaltime.equals(null)) {
+                	
+                	Flight_list.get(i).setCapacity(cap);
+    				Flight_list.get(i).setSource(src);
+    				Flight_list.get(i).setDestination(dest);
+    				Flight_list.get(i).setFlight_Date(date);
+    				Flight_list.get(i).setPrice(price);
+                }
+                
+                if(src.equals(null) && dest.equals(null))
+                {
+                	Flight_list.get(i).setCapacity(cap);
+    				Flight_list.get(i).setFlight_Date(date);
+    				Flight_list.get(i).setDeparture_Time(depttime);
+    				Flight_list.get(i).setArrival_Time(arrivaltime);
+    				Flight_list.get(i).setPrice(price);
+                }
+                if(src.equals(null) && dest.equals(null) && date.equals(null) && price.equals(null) && cap == 0 &&)
+                {
+    				Flight_list.get(i).setDeparture_Time(depttime);
+    				Flight_list.get(i).setArrival_Time(arrivaltime);
+                }
+                else {
+                	
+                	Flight_list.get(i).setCapacity(cap);
+    				Flight_list.get(i).setSource(src);
+    				Flight_list.get(i).setDestination(dest);
+    				Flight_list.get(i).setFlight_Date(date);
+    				Flight_list.get(i).setDeparture_Time(depttime);
+    				Flight_list.get(i).setArrival_Time(arrivaltime);
+    				Flight_list.get(i).setPrice(price);
+                }
+				
+			}
+		}
+
+	}
+
+	void AddFlight(int FlightID, int cap, String src, String dest, String ptype, String date, String depttime,String arrivaltime,String price) {
+		Flight temp = new Flight(FlightID, cap, src, dest, ptype, date, depttime, arrivaltime,price);
+		Flight_list.add(temp);
+
+	}
+	
+	
+	void AddBooking(int BID,int CID,int Numseats,int FiD) {
+		Booking temp=new Booking(BID,CID,Numseats,FiD);
+		Booking_list.add(temp);
+		
+	}
+
+}

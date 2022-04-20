@@ -1,0 +1,9 @@
+package application;
+
+public class tempStatic {
+	
+	static int var1;
+	static int LoginID;
+	static int seat;
+
+}

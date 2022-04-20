@@ -1,0 +1,25 @@
+package application;
+
+import javafx.embed.swing.JFXPanel;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		ARS.getInstance().Populate();
+		System.out.println();
+		ARS.getInstance().Admin_list.get(0).getAdmin_ID()
+		//new JFXPanel();
+		
+		//Login LoginWindow=new Login();
+		//LoginWindow.run();
+		
+		
+		
+		
+	}
+
+}
+

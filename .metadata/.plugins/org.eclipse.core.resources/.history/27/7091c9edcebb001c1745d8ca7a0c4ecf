@@ -1,0 +1,7 @@
+package application;
+
+public class tempStatic {
+	
+	static String var1;
+
+}

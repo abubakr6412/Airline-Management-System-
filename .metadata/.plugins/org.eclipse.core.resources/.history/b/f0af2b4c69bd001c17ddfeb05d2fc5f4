@@ -1,0 +1,74 @@
+package application;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+
+public class adminbookings implements Initializable{
+	
+	 @FXML
+		TableView<Booking> tableView = new TableView<Booking>();
+		@FXML
+		TableColumn<Booking, Integer> FlightID = new TableColumn<>();
+		@FXML
+		TableColumn<Booking, Integer> Customer_ID = new TableColumn<>();
+		@FXML
+		TableColumn<Booking, Integer> Num_Seats = new TableColumn<>();
+		@FXML
+		TableColumn<Booking, Integer> Booking_ID = new TableColumn<>();
+
+		@FXML
+		TextField rem = new TextField();
+		@FXML
+		TextField seat = new TextField();
+		
+		@FXML
+		Label check  = new Label();
+
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+
+  
+		FlightID.setCellValueFactory(new PropertyValueFactory<>("FlightID"));
+		capacity.setCellValueFactory(new PropertyValueFactory<>("capacity"));
+		Plane_Type.setCellValueFactory(new PropertyValueFactory<>("Plane_Type"));
+		Source.setCellValueFactory(new PropertyValueFactory<>("Source"));
+		Destination.setCellValueFactory(new PropertyValueFactory<>("Destination"));
+		Flight_Date.setCellValueFactory(new PropertyValueFactory<>("Flight_Date"));
+		Departure_Time.setCellValueFactory(new PropertyValueFactory<>("Departure_Time"));
+		Arrival_Time.setCellValueFactory(new PropertyValueFactory<>("Arrival_Time"));
+		Price.setCellValueFactory(new PropertyValueFactory<>("Price"));
+		
+		tableView.getColumns().clear();
+		tableView.getColumns().add(FlightID);
+		tableView.getColumns().add(capacity);
+		tableView.getColumns().add(Plane_Type);
+		tableView.getColumns().add(Source);
+		tableView.getColumns().add(Destination);
+		tableView.getColumns().add(Flight_Date);
+		tableView.getColumns().add(Departure_Time);
+		tableView.getColumns().add(Arrival_Time);
+		tableView.getColumns().add(Price);
+		for(int i = 0; i < ARS.getInstance().Flight_list.size(); i++)
+		{
+			String[] stringarray = ARS.getInstance().Flight_list.get(i).displayFlights().split("\n");
+			for (int j = 0; j < stringarray.length; j++) {
+				
+					String[] tokens = stringarray[j].split(",");
+					tableView.getItems().add(new Flight(Integer.parseInt(tokens[0]), Integer.parseInt(tokens[1]),tokens[2], tokens[3], tokens[4],tokens[5],tokens[6],tokens[7],tokens[8]));
+				}
+			}
+		}
+	
+	
+
+
+}

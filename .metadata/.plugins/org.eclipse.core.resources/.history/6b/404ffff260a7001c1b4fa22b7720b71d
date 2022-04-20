@@ -1,5 +1,0 @@
-module Airline_Reservation_System {
-	requires javafx.controls;
-	
-	opens application to javafx.graphics, javafx.controls, javafx.fxml;
-}

@@ -13,6 +13,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
@@ -48,9 +49,16 @@ public class flight_schedule implements Initializable{
 		TableColumn<Flight, String> Departure_Time = new TableColumn<>();
 		@FXML
 		TableColumn<Flight, String> Arrival_Time = new TableColumn<>();
+		@FXML
+		TableColumn<Flight, String> Price = new TableColumn<>();
 
 		@FXML
 		TextField rem = new TextField();
+		@FXML
+		TextField seat = new TextField();
+		
+		@FXML
+		Label check  = new Label();
 
 
 	@Override
@@ -65,6 +73,7 @@ public class flight_schedule implements Initializable{
 		Flight_Date.setCellValueFactory(new PropertyValueFactory<>("Flight_Date"));
 		Departure_Time.setCellValueFactory(new PropertyValueFactory<>("Departure_Time"));
 		Arrival_Time.setCellValueFactory(new PropertyValueFactory<>("Arrival_Time"));
+		Price.setCellValueFactory(new PropertyValueFactory<>("Price"));
 		
 		tableView.getColumns().clear();
 		tableView.getColumns().add(FlightID);
@@ -75,13 +84,14 @@ public class flight_schedule implements Initializable{
 		tableView.getColumns().add(Flight_Date);
 		tableView.getColumns().add(Departure_Time);
 		tableView.getColumns().add(Arrival_Time);
+		tableView.getColumns().add(Price);
 		for(int i = 0; i < ARS.getInstance().Flight_list.size(); i++)
 		{
 			String[] stringarray = ARS.getInstance().Flight_list.get(i).displayFlights().split("\n");
 			for (int j = 0; j < stringarray.length; j++) {
 				
 					String[] tokens = stringarray[j].split(",");
-					tableView.getItems().add(new Flight(Integer.parseInt(tokens[0]), Integer.parseInt(tokens[1]),tokens[2], tokens[3], tokens[4],tokens[5],tokens[6],tokens[7]));
+					tableView.getItems().add(new Flight(Integer.parseInt(tokens[0]), Integer.parseInt(tokens[1]),tokens[2], tokens[3], tokens[4],tokens[5],tokens[6],tokens[7],tokens[8]));
 				}
 			}
 		}
@@ -96,6 +106,78 @@ public class flight_schedule implements Initializable{
 		scene = new Scene(root);
 		stage.setScene(scene);
 		stage.show();
+	}
+	
+	
+	public void switchToViewbooking(MouseEvent event) throws IOException {
+		
+		int book = Integer.parseInt(rem.getText());
+		int seat_num = Integer.parseInt(seat.getText());
+		tempStatic.flightID = book;
+		tempStatic.seat = seat_num;
+		Boolean t2 = true;
+		
+
+		for(int i = 0; i < ARS.getInstance().Flight_list.size(); i++)
+		{
+		    if(book != ARS.getInstance().Flight_list.get(i).getFlightID()) {
+		    	
+		    	check.setText("ID Not Found");
+		    }
+		}
+		
+
+		for(int i = 0; i < ARS.getInstance().Booking_list.size(); i++)
+		{
+		    if(seat_num == ARS.getInstance().Booking_list.get(i).getNum_Seats() && ARS.getInstance().Booking_list.get(i).getFlight_ID() == book) {
+		    	
+		    	//System.out.println(ARS.getInstance().Booking_list.get(i).getNum_Seats());
+		    	check.setText("Seat Already Booked");
+		    	t2 = false;
+		    }
+		}
+		
+		if(t2 == true) {
+		for(int i = 0; i < ARS.getInstance().Flight_list.size(); i++)
+		{
+			if(tempStatic.flightID == ARS.getInstance().Flight_list.get(i).getFlightID() && ARS.getInstance().Flight_list.get(i).getDestination().equals("Islamabad")) {
+		        root = FXMLLoader.load(getClass().getResource("bookticket.fxml"));
+		        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		        scene = new Scene(root);
+		        stage.setScene(scene);
+		        stage.show();
+			}
+			if(tempStatic.flightID == ARS.getInstance().Flight_list.get(i).getFlightID() && ARS.getInstance().Flight_list.get(i).getDestination().equals("Karachi")) {
+		        root = FXMLLoader.load(getClass().getResource("Karachi.fxml"));
+		        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		        scene = new Scene(root);
+		        stage.setScene(scene);
+		        stage.show();
+			}
+			if(tempStatic.flightID == ARS.getInstance().Flight_list.get(i).getFlightID() && ARS.getInstance().Flight_list.get(i).getDestination().equals("Multan")) {
+		        root = FXMLLoader.load(getClass().getResource("multan.fxml"));
+		        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		        scene = new Scene(root);
+		        stage.setScene(scene);
+		        stage.show();
+			}
+			if(tempStatic.flightID == ARS.getInstance().Flight_list.get(i).getFlightID() && ARS.getInstance().Flight_list.get(i).getDestination().equals("Lahore")) {
+		        root = FXMLLoader.load(getClass().getResource("Lahore.fxml"));
+		        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		        scene = new Scene(root);
+		        stage.setScene(scene);
+		        stage.show();
+			}
+			if(tempStatic.flightID == ARS.getInstance().Flight_list.get(i).getFlightID() && ARS.getInstance().Flight_list.get(i).getDestination().equals("Faisalabad")) {
+		        root = FXMLLoader.load(getClass().getResource("Faisalabad.fxml"));
+		        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		        scene = new Scene(root);
+		        stage.setScene(scene);
+		        stage.show();
+			}
+			
+		}
+	}
 	}
 
 }

@@ -1,0 +1,10 @@
+package application;
+
+public class tempStatic {
+	
+	static int flightID;
+	static int LoginID;
+	static int seat;
+	static int cancel_ID;
+
+}

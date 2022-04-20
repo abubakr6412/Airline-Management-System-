@@ -11,49 +11,73 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class bookingDisplay implements Initializable {
 
 	@FXML
-	private Label booking_ID;
+	private Rectangle box;
 	@FXML
-	private Label seatnum;
+	private ImageView image;
 	@FXML
-	private Label cus_ID;
-	@FXML
-	private Label Flight_ID;
+	private Text txt;
 
 	@FXML
-	private Label booking_ID1;
+	private TextField rem;
 	@FXML
-	private Label seatnum1;
-	@FXML
-	private Label cus_ID1;
-	@FXML
-	private Label Flight_ID1;
-    
+	private Label invalid;
+
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
-	
+
+	@FXML
+	TableView<Booking> tableView = new TableView<Booking>();
+	@FXML
+	TableColumn<Booking, Integer> Booking_ID = new TableColumn<>();
+	@FXML
+	TableColumn<Booking, Integer> Customer_ID = new TableColumn<>();
+	@FXML
+	TableColumn<Booking, Integer> Flight_ID = new TableColumn<>();
+	@FXML
+	TableColumn<Booking, Integer> Num_Seats = new TableColumn<>();
+
+	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 
-		Boolean check = false;
+		box.setVisible(false);
+		image.setVisible(false);
+		txt.setVisible(false);
 
+		Booking_ID.setCellValueFactory(new PropertyValueFactory<>("Booking_ID"));
+		Customer_ID.setCellValueFactory(new PropertyValueFactory<>("Customer_ID"));
+		Flight_ID.setCellValueFactory(new PropertyValueFactory<>("Flight_ID"));
+		Num_Seats.setCellValueFactory(new PropertyValueFactory<>("Num_Seats"));
+
+		tableView.getColumns().clear();
+		tableView.getColumns().add(Booking_ID);
+		tableView.getColumns().add(Customer_ID);
+		tableView.getColumns().add(Flight_ID);
+		tableView.getColumns().add(Num_Seats);
+		
 		for (int i = 0; i < ARS.getInstance().Booking_list.size(); i++) {
-			if (check == false) {
-				booking_ID.setText(Integer.toString(ARS.getInstance().Booking_list.get(i).getBooking_ID()));
-				Flight_ID.setText(Integer.toString(ARS.getInstance().Booking_list.get(i).getFlight_ID()));
-				cus_ID.setText(Integer.toString(ARS.getInstance().Booking_list.get(i).getCustomer_ID()));
-				seatnum.setText(Integer.toString(ARS.getInstance().Booking_list.get(i).getNum_Seats()));
-				check = true;
-			} else if (check == true) {
-				booking_ID1.setText(Integer.toString(ARS.getInstance().Booking_list.get(i).getBooking_ID()));
-				Flight_ID1.setText(Integer.toString(ARS.getInstance().Booking_list.get(i).getFlight_ID()));
-				cus_ID1.setText(Integer.toString(ARS.getInstance().Booking_list.get(i).getCustomer_ID()));
-				seatnum1.setText(Integer.toString(ARS.getInstance().Booking_list.get(i).getNum_Seats()));
+
+			if (ARS.getInstance().Booking_list.get(i).getCustomer_ID() == tempStatic.LoginID) {
+				String[] stringarray = ARS.getInstance().Booking_list.get(i).string_Booking().split("\n");
+				for (int j = 0; j < stringarray.length; j++) {
+
+					String[] tokens = stringarray[j].split(",");
+					tableView.getItems().add(new Booking(Integer.parseInt(tokens[0]), Integer.parseInt(tokens[1]),
+							Integer.parseInt(tokens[2]), Integer.parseInt(tokens[3])));
+				}
 			}
 		}
 	}
@@ -67,6 +91,29 @@ public class bookingDisplay implements Initializable {
 		stage.show();
 	}
 
+	public void cancel(MouseEvent event) throws IOException {
 
+		Boolean check = true;
+		int id = Integer.parseInt(rem.getText());
+		for (int i = 0; i < ARS.getInstance().Booking_list.size(); i++) {
+
+			if (id == ARS.getInstance().Booking_list.get(i).getBooking_ID()) {
+				box.setVisible(true);
+				image.setVisible(true);
+				txt.setVisible(true);
+				tempStatic.cancel_ID = Integer.parseInt(rem.getText());
+			}
+		}
+
+		
+	}
+
+	public void cross(MouseEvent event) throws IOException {
+
+		box.setVisible(false);
+		image.setVisible(false);
+		txt.setVisible(false);
+		rem.setText("");
+	}
 
 }

@@ -1,0 +1,45 @@
+package application;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+public class Sprint2_Testcase {
+	
+	@Test
+	public void AddBooking() {
+		ARS tempclass = new ARS();
+		Booking temp = new Booking(10002,3002,4,4001);
+
+		tempclass.Booking_list.add(temp);
+
+		assertEquals(temp.PrintBooking(), tempclass.Booking_list.get(0).PrintBooking());
+
+	}
+
+	@Test
+	public void AddAdmin() {
+		ARS tempclass = new ARS();
+		Admin tempAdmin = new Admin("Haroon", "Risasat 5 Road 6 Islamabad", "Female", "0315593484", "Hoeroon123",
+				"1234", 45, 3002);
+
+		tempclass.Admin_list.add(tempAdmin);
+
+		assertEquals(tempAdmin, tempclass.Admin_list.get(0));
+
+	}
+
+	@Test
+	public void AddFDO() {
+		ARS tempclass = new ARS();
+		FDO tempFDO = new FDO("Haroon", "Risasat 5 Road 6 Islamabad", "Female", "0315593484", "Hoeroon123", "1234", 45,
+				3002);
+
+		tempclass.FDO_list.add(tempFDO);
+
+		assertEquals(tempFDO, tempclass.FDO_list.get(0));
+
+	}
+
+
+}

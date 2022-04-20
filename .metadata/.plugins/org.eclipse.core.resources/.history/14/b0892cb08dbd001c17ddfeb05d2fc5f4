@@ -1,0 +1,18 @@
+package application;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+
+public class Notification implements intializatibe{
+	
+	@FXML
+	private Label label;
+	
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+	}
+
+}

@@ -1,0 +1,23 @@
+package application;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
+
+public class AddFlight {
+	
+	@FXML
+	TextField planetype = new TextField();
+	@FXML
+	TextField source = new TextField();
+	@FXML
+	TextField dest = new TextField();
+	@FXML
+	TextField depart = new TextField();
+	@FXML
+	TextField arrival = new TextField();
+	@FXML
+	TextField date = new TextField();
+	@FXML
+	TextField price = new TextField();
+
+}

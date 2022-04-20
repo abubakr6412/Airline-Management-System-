@@ -7,18 +7,13 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		
 		ARS.getInstance().Populate();
-		
+
 		new JFXPanel();
-		
-		Login LoginWindow=new Login();
+
+		Login LoginWindow = new Login();
 		LoginWindow.run();
-		
-		
-		
-		
+
 	}
 
 }
-

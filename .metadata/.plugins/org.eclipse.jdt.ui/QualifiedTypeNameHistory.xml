@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
     <fullyQualifiedTypeName name="javafx.application.Application"/>
-    <fullyQualifiedTypeName name="javafx.fxml.Initializable"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="javafx.fxml.FXMLLoader"/>
     <fullyQualifiedTypeName name="UI.LoginWindow"/>
@@ -16,25 +15,32 @@
     <fullyQualifiedTypeName name="javafx.scene.control.ChoiceBox"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.io.BufferedReader"/>
-    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
     <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
     <fullyQualifiedTypeName name="java.nio.charset.StandardCharsets"/>
     <fullyQualifiedTypeName name="javafx.scene.control.TableView"/>
     <fullyQualifiedTypeName name="javafx.scene.control.TableColumn"/>
-    <fullyQualifiedTypeName name="javafx.scene.control.TextField"/>
     <fullyQualifiedTypeName name="javafx.scene.control.cell.PropertyValueFactory"/>
     <fullyQualifiedTypeName name="javafx.stage.Stage"/>
     <fullyQualifiedTypeName name="javafx.scene.Scene"/>
     <fullyQualifiedTypeName name="javafx.scene.Parent"/>
-    <fullyQualifiedTypeName name="javafx.scene.control.Label"/>
-    <fullyQualifiedTypeName name="javafx.fxml.FXML"/>
     <fullyQualifiedTypeName name="javafx.util.Callback"/>
     <fullyQualifiedTypeName name="javafx.scene.control.TableCell"/>
     <fullyQualifiedTypeName name="javafx.event.ActionEvent"/>
     <fullyQualifiedTypeName name="javafx.scene.control.TableRow"/>
-    <fullyQualifiedTypeName name="javafx.scene.control.Button"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.Test"/>
     <fullyQualifiedTypeName name="org.junit.jupiter.api.BeforeAll"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="application.ARS"/>
+    <fullyQualifiedTypeName name="java.io.InputStream"/>
+    <fullyQualifiedTypeName name="javafx.scene.image.Image"/>
+    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
+    <fullyQualifiedTypeName name="javafx.scene.control.Button"/>
+    <fullyQualifiedTypeName name="javafx.fxml.Initializable"/>
+    <fullyQualifiedTypeName name="javafx.scene.shape.Rectangle"/>
+    <fullyQualifiedTypeName name="javafx.scene.image.ImageView"/>
+    <fullyQualifiedTypeName name="javafx.scene.text.Text"/>
+    <fullyQualifiedTypeName name="javafx.scene.control.TextField"/>
+    <fullyQualifiedTypeName name="javafx.scene.control.TextArea"/>
+    <fullyQualifiedTypeName name="javafx.fxml.FXML"/>
+    <fullyQualifiedTypeName name="javafx.scene.control.Label"/>
 </qualifiedTypeNameHistroy>

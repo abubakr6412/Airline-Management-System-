@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="637.0" prefWidth="1096.0" style="-fx-background-color: #02030A;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.complaintUI">
+   <children>
+      <Pane layoutX="-3.0" prefHeight="644.0" prefWidth="1103.0">
+         <children>
+            <Text fill="WHITE" layoutX="173.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Complain" textAlignment="CENTER" wrappingWidth="329.2904052734375">
+               <font>
+                  <Font name="Engravers MT" size="31.0" />
+               </font>
+            </Text>
+            <Pane layoutX="-109.0" layoutY="-10.0" prefHeight="77.0" prefWidth="1212.0" style="-fx-background-color: #0e134e;">
+               <children>
+                  <HBox layoutX="592.0" layoutY="14.0" prefHeight="65.0" prefWidth="612.0" spacing="30.0">
+                     <children>
+                        <Button mnemonicParsing="false" onMouseClicked="#switchToHome" prefHeight="50.0" prefWidth="148.0" style="-fx-background-color: transparent;" styleClass="menuItem" stylesheets="@button.css" text="HOME" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="33.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/dash.png" />
+                                 </image>
+                                 <effect>
+                                    <Blend />
+                                 </effect>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Arial Black" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="51.0" prefWidth="150.0" style="-fx-background-color: transparent;" styleClass="menuItem" stylesheets="@button.css" text="ABOUT" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/image.png" />
+                                 </image>
+                                 <effect>
+                                    <ColorAdjust />
+                                 </effect>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Arial Black" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="142.0" style="-fx-background-color: transparent;" styleClass="menuItem" stylesheets="@button.css" text="CONTACT" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="24.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/call.png" />
+                                 </image>
+                                 <effect>
+                                    <ColorAdjust contrast="-0.04" />
+                                 </effect>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Arial Black" size="14.0" />
+                           </font>
+                        </Button>
+                        <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="126.0" style="-fx-background-color: transparent;" styleClass="menuItem" stylesheets="@button.css" text="LOGOUT" textFill="WHITE">
+                           <graphic>
+                              <ImageView fitHeight="23.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../images/logout.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <font>
+                              <Font name="Arial Black" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <Button layoutX="123.0" layoutY="13.0" mnemonicParsing="false" onMouseClicked="#switchToHome" prefHeight="50.0" prefWidth="102.0" style="-fx-background-color: transparent;" styleClass="menuItem" stylesheets="@button.css" text="BACK" textFill="WHITE">
+                     <graphic>
+                        <ImageView fitHeight="33.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/back2.png" />
+                           </image>
+                           <effect>
+                              <Blend />
+                           </effect>
+                        </ImageView>
+                     </graphic>
+                     <font>
+                        <Font name="Arial Black" size="14.0" />
+                     </font>
+                  </Button>
+               </children></Pane>
+            <ImageView fitHeight="42.0" fitWidth="64.0" layoutX="173.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/complain.png" />
+               </image>
+            </ImageView>
+            <Text fill="WHITE" layoutX="68.0" layoutY="248.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Write your Complaint here:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="572.0" fitWidth="468.0" layoutX="645.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/photo-1559268950-2d7ceb2efa3a.jpeg" />
+               </image>
+               <effect>
+                  <DropShadow height="0.0" radius="17.63" width="72.52">
+                     <color>
+                        <Color red="0.14102989435195923" green="0.07442495226860046" blue="0.8736842274665833" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </ImageView>
+            <Button layoutX="68.0" layoutY="453.0" mnemonicParsing="false" onMouseClicked="#save" prefHeight="25.0" prefWidth="126.0" style="-fx-background-color: #2c50b4;" text="Save" textFill="WHITE" />
+            <TextArea layoutX="67.0" layoutY="272.0" prefHeight="170.0" prefWidth="540.0" promptText="Write text here..." />
+         </children>
+      </Pane>
+      <Rectangle fx:id="box" arcHeight="5.0" arcWidth="5.0" fill="#0e134e" height="203.0" layoutX="285.0" layoutY="270.0" stroke="WHITE" strokeLineJoin="BEVEL" strokeMiterLimit="0.0" strokeWidth="3.0" style="-fx-stroke-dash-array: 5;" width="584.0" />
+      <Text fx:id="txt" fill="WHITE" layoutX="339.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Complaint has been forwarded to FDO.It will take 1-2 Days to proccess your complain. Thankyou for telling us we will try to provide our best service." textAlignment="CENTER" wrappingWidth="475.99999999999994">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="image" fitHeight="18.0" fitWidth="23.0" layoutX="841.0" layoutY="276.0" onMouseClicked="#cross" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/1200px-Flat_cross_icon.svg.png" />
+         </image>
+      </ImageView>
+   </children>
+   <effect>
+      <DropShadow color="#1b1eeb" />
+   </effect>
+</AnchorPane>
