@@ -63,8 +63,21 @@ public class ARS {
 					Flight_list.get(i).setSource(src);
 					Flight_list.get(i).setDestination(dest);
 				}
+				else if (depttime.equals("") && arrivaltime.equals("") && date.equals("") && cap == 0 && src.equals("") && dest.equals(""))
+				{
+					Flight_list.get(i).setPrice(price);
+				}
 				
-				else if (cap == 0) {
+				else if (depttime.equals("") && arrivaltime.equals("") &&  price.equals("") && cap == 0 && src.equals("") && dest.equals("")){
+					
+					Flight_list.get(i).setFlight_Date(date);
+					
+				}
+				else if (depttime.equals("") && arrivaltime.equals("") && date.equals("") && price.equals("") &&  src.equals("") && dest.equals("")) {
+					
+					Flight_list.get(i).setCapacity(cap);
+				}
+				else if (cap == 0 && !depttime.equals("") && !arrivaltime.equals("") && !date.equals("") && !price.equals("") &&  !src.equals("") && !dest.equals("")) {
                     
 					
 					Flight_list.get(i).setSource(src);
@@ -75,7 +88,7 @@ public class ARS {
 					Flight_list.get(i).setPrice(price);
 				}
 
-				else if (src.equals("")) {
+				else if (src.equals("") && cap != 0 && !depttime.equals("") && !arrivaltime.equals("") && !date.equals("") && !price.equals("") &&  !dest.equals("")) {
 
 					Flight_list.get(i).setCapacity(cap);
 					Flight_list.get(i).setDestination(dest);
@@ -84,7 +97,7 @@ public class ARS {
 					Flight_list.get(i).setArrival_Time(arrivaltime);
 					Flight_list.get(i).setPrice(price);
 				}
-				else if (dest.equals("")) {
+				else if (dest.equals("") && cap != 0 && !depttime.equals("") && !arrivaltime.equals("") && !date.equals("") && !price.equals("") &&  !src.equals("")) {
 
 					Flight_list.get(i).setCapacity(cap);
 					Flight_list.get(i).setSource(src);
@@ -94,7 +107,7 @@ public class ARS {
 					Flight_list.get(i).setPrice(price);
 				}
 
-				else if (date.equals("")) {
+				else if (date.equals("") && cap != 0 && !depttime.equals("") && !arrivaltime.equals("") && !price.equals("") &&  !src.equals("") && !dest.equals("")) {
 
 					Flight_list.get(i).setCapacity(cap);
 					Flight_list.get(i).setSource(src);
@@ -104,26 +117,7 @@ public class ARS {
 					Flight_list.get(i).setPrice(price);
 				}
 
-				else if (depttime.equals("")) {
-
-					Flight_list.get(i).setCapacity(cap);
-					Flight_list.get(i).setSource(src);
-					Flight_list.get(i).setDestination(dest);
-					Flight_list.get(i).setFlight_Date(date);
-					Flight_list.get(i).setArrival_Time(arrivaltime);
-					Flight_list.get(i).setPrice(price);
-				}
-
-				else if (arrivaltime.equals("")) {
-
-					Flight_list.get(i).setCapacity(cap);
-					Flight_list.get(i).setSource(src);
-					Flight_list.get(i).setDestination(dest);
-					Flight_list.get(i).setFlight_Date(date);
-					Flight_list.get(i).setDeparture_Time(depttime);
-					Flight_list.get(i).setPrice(price);
-				}
-				else if (price.equals("")) {
+				else if (price.equals("") && cap != 0 && !depttime.equals("") && !arrivaltime.equals("") && !date.equals("") && !src.equals("") && !dest.equals("")) {
 
 					Flight_list.get(i).setCapacity(cap);
 					Flight_list.get(i).setSource(src);
@@ -133,7 +127,7 @@ public class ARS {
 					Flight_list.get(i).setArrival_Time(arrivaltime);
 				}
 
-				else if (depttime.equals("") && arrivaltime.equals("")) {
+				else if (depttime.equals("") && arrivaltime.equals("") && cap == 0 && !date.equals("") && !price.equals("") &&  !src.equals("") && !dest.equals("")) {
 
 					Flight_list.get(i).setCapacity(cap);
 					Flight_list.get(i).setSource(src);
@@ -142,7 +136,7 @@ public class ARS {
 					Flight_list.get(i).setPrice(price);
 				}
 
-				else if (src.equals("") && dest.equals("")) {
+				else if (src.equals("") && dest.equals("") && cap == 0 && !depttime.equals("") && !arrivaltime.equals("") && !date.equals("") && !price.equals("")) {
 					Flight_list.get(i).setCapacity(cap);
 					Flight_list.get(i).setFlight_Date(date);
 					Flight_list.get(i).setDeparture_Time(depttime);

@@ -99,12 +99,10 @@ public class FDOcancel implements Initializable {
 		
         for (int i = 0; i < ARS.getInstance().Booking_list.size(); i++) {
         	if(Integer.parseInt(rem.getText()) == ARS.getInstance().Booking_list.get(i).getBooking_ID()) {
-        		ARS.getInstance().CancelBooking(Integer.parseInt(rem.getText()));
+        	    tempStatic.notify = true;
+        	    tempStatic.notifyid = ARS.getInstance().Booking_list.get(i).getCustomer_ID();
+        	    ARS.getInstance().CancelBooking(Integer.parseInt(rem.getText()));
         		invalid.setText("Booking Cancelled.");
-        		if(ARS.getInstance().Booking_list.get(i).getCustomer_ID() == tempStatic.LoginID) {
-        			tempStatic.notify = true;
-        			tempStatic.notifyid = ARS.getInstance().Booking_list.get(i).getCustomer_ID();
-        		}
         		check = false;
         	}
         	

@@ -3,6 +3,8 @@ package UI;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import application.*;
 import javafx.animation.TranslateTransition;
@@ -387,11 +389,55 @@ public class Login extends Application implements Runnable, Initializable {
 		String pass = password1.getText();
 		String choice = choicebox.getValue();
 		
+		Pattern pattern = Pattern.compile(".*[a-zA-Z]+.*");
+	    Matcher matcher = pattern.matcher(number);
+	    
+	    Pattern patt = Pattern.compile("[^a-z]", Pattern.CASE_INSENSITIVE);
+	    Matcher match = patt.matcher(number);
+	    
+	    Pattern p = Pattern.compile("[0-9]", Pattern.CASE_INSENSITIVE);
+	    Matcher m = p.matcher(number);
+		
 		if(name == "" || Address == "" || age == "" || number == "" || user == "" || pass == "" || choice == "") {
 			
 			create.setText("Please fill all entries.");
 
 		}
+		
+		else if(pass.length() < 4) {
+			
+			create.setText("Password lenght cannot be less than 4 ");
+		}
+        else if(pass.length() > 15) {
+			
+			create.setText("Password lenght too long");
+		}
+        else if(number.length() > 11 || number.length() < 11) {
+			
+			create.setText("Number should be 11 digits");
+		}
+        else if (matcher.matches()) {
+             
+        	create.setText("Number should be only digits");
+        }
+        else if (match.matches()) {
+            
+        	create.setText("Number should be only digits");
+        }
+        else if (Integer.parseInt(age) < 14 || Integer.parseInt(age) > 90) {
+        	
+        	create.setText("Age should be between 14-90");
+        }
+        else if (Integer.parseInt(age) < 14 || Integer.parseInt(age) > 90) {
+        	
+        	create.setText("Age should be between 14-90");
+        }
+        else if (m.matches()) {
+        	
+        	create.setText("Name must contain alphabets");
+        	
+        }
+		
 		else {
 			
 			int cid = 0;

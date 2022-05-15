@@ -132,17 +132,38 @@ public class Updateflight implements Initializable {
 
 				ARS.getInstance().EditFlight(Integer.parseInt(ID.getText()), 0, "", "", "", "", depart.getText(),
 						arrival.getText(), "");
-			} else if (arrival.getText() == "" && depart.getText() == "" && date.getText() == ""
+				
+			} 
+			else if (arrival.getText() == "" && depart.getText() == "" && date.getText() == ""
 					&& price.getText() == "" && cap.getText() == "" && dest.getText() == "") {
 
 				ARS.getInstance().EditFlight(Integer.parseInt(ID.getText()), 0, source.getText(), "", "", "", "", "","");
 
-			} else if (arrival.getText() == "" && depart.getText() == "" && date.getText() == ""
+			} 
+			else if (arrival.getText() == "" && depart.getText() == "" && date.getText() == ""
+					&&  cap.getText() == "" && dest.getText() == "" && source.getText() == "") {
+
+				ARS.getInstance().EditFlight(Integer.parseInt(ID.getText()), 0, "", "", "", "", "", "", price.getText());
+
+			}
+			else if (arrival.getText() == "" && depart.getText() == "" && price.getText() == "" && cap.getText() == "" && dest.getText() == "" && source.getText() == "") {
+
+				ARS.getInstance().EditFlight(Integer.parseInt(ID.getText()), 0, "", "", "",date.getText(), "", "","");
+
+			} 
+			else if (arrival.getText() == "" && depart.getText() == "" && date.getText() == ""
+					&& price.getText() == "" && dest.getText() == "" && source.getText() == "") {
+
+				ARS.getInstance().EditFlight(Integer.parseInt(ID.getText()), Integer.parseInt(cap.getText()), "", "", "","", "", "","");
+
+			} 
+			else if (arrival.getText() == "" && depart.getText() == "" && date.getText() == ""
 					&& price.getText() == "" && cap.getText() == "" && source.getText() == "") {
 
 				ARS.getInstance().EditFlight(Integer.parseInt(ID.getText()), 0, "", dest.getText(), "", "", "", "", "");
 
-			} else if (arrival.getText() == "" && depart.getText() == "" && date.getText() == ""
+			} 
+			else if (arrival.getText() == "" && depart.getText() == "" && date.getText() == ""
 					&& price.getText() == "" && cap.getText() == "") {
 
 				ARS.getInstance().EditFlight(Integer.parseInt(ID.getText()), 0, source.getText(), dest.getText(), "",
@@ -150,48 +171,57 @@ public class Updateflight implements Initializable {
 
 			}
 
-			else if (depart.getText() == "" && arrival.getText() == "") {
+			else if (depart.getText() == "" && arrival.getText() == "" && date.getText() != ""
+					&& price.getText() != "" && cap.getText() != "" && source.getText() != "" && dest.getText() != "") {
 
 				ARS.getInstance().EditFlight(Integer.parseInt(ID.getText()), Integer.parseInt(cap.getText()),
 						source.getText(), dest.getText(), "", date.getText(), depart.getText(), arrival.getText(), "");
 			}
 
-			else if (source.getText() == "" && dest.getText() == "") {
+			else if (source.getText() == "" && dest.getText() == "" && depart.getText() != "" && arrival.getText() != "" && date.getText() != ""
+					&& price.getText() != "" && cap.getText() != "") {
 
 				ARS.getInstance().EditFlight(Integer.parseInt(ID.getText()), Integer.parseInt(cap.getText()),
 						source.getText(), dest.getText(), "", date.getText(), depart.getText(), arrival.getText(), "");
-			} else if (cap.getText() == "") {
+			} 
+			else if (cap.getText() == "" && source.getText() != "" && dest.getText() != "" && depart.getText() != "" && arrival.getText() != "" && date.getText() != ""
+					&& price.getText() != "" ) {
 
 				ARS.getInstance().EditFlight(Integer.parseInt(ID.getText()), 0, source.getText(), dest.getText(), "",
 						date.getText(), depart.getText(), arrival.getText(), price.getText());
 
-			} else if (source.getText() == "") {
+			} else if (source.getText() == "" && cap.getText() != "" && dest.getText() == "" && depart.getText() != "" && arrival.getText() != "" && date.getText() != ""
+					&& price.getText() != "" ) {
 
 				ARS.getInstance().EditFlight(Integer.parseInt(ID.getText()), Integer.parseInt(cap.getText()), "",
 						dest.getText(), "", date.getText(), depart.getText(), arrival.getText(), price.getText());
-			} else if (dest.getText() == "") {
+			} else if (dest.getText() == "" && source.getText() != "" && cap.getText() != "" &&  depart.getText() != "" && arrival.getText() != "" && date.getText() != ""
+					&& price.getText() != "" ) {
 
 				ARS.getInstance().EditFlight(Integer.parseInt(ID.getText()), Integer.parseInt(cap.getText()),
 						source.getText(), "", "", date.getText(), depart.getText(), arrival.getText(), price.getText());
 			}
 
-			else if (date.getText() == "") {
+			else if (date.getText() == "" && source.getText() != "" && cap.getText() != "" && dest.getText() == "" && depart.getText() != "" && arrival.getText() != ""
+					&& price.getText() != "" ) {
 
 				ARS.getInstance().EditFlight(Integer.parseInt(ID.getText()), Integer.parseInt(cap.getText()),
 						source.getText(), dest.getText(), "", "", depart.getText(), arrival.getText(), price.getText());
 			}
 
-			else if (depart.getText() == "") {
+			else if (depart.getText() == "" && source.getText() != "" && cap.getText() != "" && dest.getText() == "" && arrival.getText() != "" && date.getText() != ""
+					&& price.getText() != "" ) {
 
 				ARS.getInstance().EditFlight(Integer.parseInt(ID.getText()), Integer.parseInt(cap.getText()),
 						source.getText(), dest.getText(), "", date.getText(), "", arrival.getText(), price.getText());
 			}
 
-			else if (arrival.getText() == "") {
+			else if (arrival.getText() == "" && source.getText() != "" && cap.getText() != "" && dest.getText() == "" && depart.getText() != "" && date.getText() != ""
+					&& price.getText() != "") {
 
 				ARS.getInstance().EditFlight(Integer.parseInt(ID.getText()), Integer.parseInt(cap.getText()),
 						source.getText(), dest.getText(), "", date.getText(), depart.getText(), "", price.getText());
-			} else if (price.getText() == "") {
+			} else if (price.getText() == "" && source.getText() != "" && cap.getText() != "" && dest.getText() == "" && depart.getText() != "" && arrival.getText() != "" && date.getText() != "") {
 
 				ARS.getInstance().EditFlight(Integer.parseInt(ID.getText()), Integer.parseInt(cap.getText()),
 						source.getText(), dest.getText(), "", date.getText(), depart.getText(), arrival.getText(), "");

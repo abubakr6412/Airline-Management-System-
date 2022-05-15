@@ -1,2 +1,0 @@
-Files in Java might be tricky, but it is fun enough!
-4004,7,a,a,a,a,a,aa,a

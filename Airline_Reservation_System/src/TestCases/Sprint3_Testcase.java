@@ -8,7 +8,7 @@ import org.junit.runners.MethodSorters;
 import application.ARS;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
-public class Updateflight {
+public class Sprint3_Testcase {
 	
 	@Test
 	public void updateflight_test1() {
@@ -90,7 +90,7 @@ public class Updateflight {
 	public void updateflight_test8() {
 		
 		ARS.getInstance().Populate();
-		ARS.getInstance().EditFlight(4001, 270, "Multan", "Islamabad","B-777", "23-03-2022", "", "05:00 PM", "5500 PKR");
+		ARS.getInstance().EditFlight(4001, 270, "Multan", "Islamabad","B-777", "23-03-2022", "02:00 PM", "05:00 PM", "");
 		String flight = "4001,270,B-777,Multan,Islamabad,23-03-2022,02:00 PM,05:00 PM,5500 PKR";
 		assertEquals(flight,ARS.getInstance().Flight_list.get(0).displayFlights());
          
@@ -101,7 +101,7 @@ public class Updateflight {
 	public void updateflight_test9() {
 		
 		ARS.getInstance().Populate();
-		ARS.getInstance().EditFlight(4001, 270, "Multan", "Islamabad","B-777", "23-03-2022", "02:00 PM", "", "5500 PKR");
+		ARS.getInstance().EditFlight(4001, 270, "Multan", "Islamabad","B-777", "", "02:00 PM", "05:00 PM", "5500 PKR");
 		String flight = "4001,270,B-777,Multan,Islamabad,23-03-2022,02:00 PM,05:00 PM,5500 PKR";
 		assertEquals(flight,ARS.getInstance().Flight_list.get(0).displayFlights());
          
