@@ -6,7 +6,7 @@ public class Complain {
     private String Complain;
 	
 	
-    Complain(int complainID,String complain){
+    public Complain(int complainID,String complain){
     	ComplainID = complainID;
     	Complain = complain;
 		

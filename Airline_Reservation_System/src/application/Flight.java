@@ -7,7 +7,7 @@ public class Flight {
 	private String Source,Plane_Type,Destination,Flight_Date,Departure_Time,Arrival_Time,Price;
 	
 	
-	Flight(int FID,int cap,String src,String dest,String ptype,String date,String depttime,String arrivaltime, String price){
+	public Flight(int FID,int cap,String ptype,String src,String dest,String date,String depttime,String arrivaltime, String price){
 		FlightID=FID;
 		capacity=cap;
 		Source=src;

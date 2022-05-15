@@ -5,7 +5,7 @@ public class Admin {
 	private int Age,Admin_ID;
 	
 	
-	Admin(String name,String address,String gender,String phone,String username,String password,int age,int cid){
+	public Admin(String name,String address,String gender,String phone,String username,String password,int age,int cid){
 		Name=name;
 		Address=address;
 		Gender=gender;

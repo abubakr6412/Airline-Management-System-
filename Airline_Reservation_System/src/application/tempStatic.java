@@ -2,10 +2,14 @@ package application;
 
 public class tempStatic {
 	
-	static int flightID;
-	static int LoginID;
-	static int seat;
-	static int cancel_ID;
-	static Boolean notify = false;
+	public static int flightID;
+	public static int LoginID;
+	public static int seat;
+	public static int cancel_ID;
+	public static Boolean notify = false;
+	public static int notifyid;
+	public static Boolean confirmation = false;
+	public static String back;
+	public static String stype;
 
 }

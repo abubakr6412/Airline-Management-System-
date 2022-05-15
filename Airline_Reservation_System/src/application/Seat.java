@@ -6,7 +6,7 @@ public class Seat {
 	private int Booking_ID,Seat_No;
 	private String Seat_Type;
 	
-	Seat(int BID,int SNo,String Stype){
+	public Seat(int BID,int SNo,String Stype){
 		Booking_ID=BID;
 		Seat_No=SNo;
 		Seat_Type=Stype;

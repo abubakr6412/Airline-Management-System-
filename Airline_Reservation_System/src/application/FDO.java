@@ -5,7 +5,7 @@ public class FDO {
 	private int Age,FDO_ID;
 	
 	
-	FDO(String name,String address,String gender,String phone,String username,String password,int age,int cid){
+	public FDO(String name,String address,String gender,String phone,String username,String password,int age,int cid){
 		Name=name;
 		Address=address;
 		Gender=gender;
