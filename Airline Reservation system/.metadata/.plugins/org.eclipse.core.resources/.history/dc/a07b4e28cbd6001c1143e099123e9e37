@@ -1,0 +1,195 @@
+package UI;
+
+import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import application.ARS;
+import application.tempStatic;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+
+public class AddFlight {
+
+	private Stage stage;
+	private Scene scene;
+	private Parent root;
+
+	@FXML
+	TextField planetype = new TextField();
+	@FXML
+	TextField source = new TextField();
+	@FXML
+	TextField dest = new TextField();
+	@FXML
+	TextField depart = new TextField();
+	@FXML
+	TextField arrival = new TextField();
+	@FXML
+	TextField date = new TextField();
+	@FXML
+	TextField price = new TextField();
+	@FXML
+	TextField capacity = new TextField();
+	@FXML
+	Label incomplete = new Label();
+
+	public void Addflight(MouseEvent event) throws IOException {
+		
+		Pattern pattern = Pattern.compile(".*[a-zA-Z]+.*");
+	    Matcher matcher = pattern.matcher(capacity.getText());
+	    
+	    Pattern pa = Pattern.compile("[0-9]");
+	    Matcher ma = pattern.matcher(source.getText());
+	    
+	    Pattern pa1 = Pattern.compile("[0-9]");
+	    Matcher ma1 = pattern.matcher(dest.getText());
+	    
+	    String[] time = {"00:00 AM"};
+	    String[] time2 = {"00:00 PM"};
+	    
+	    String[] Date = {"00-00-00"};
+	    
+	    String[] arrive = {arrival.getText()};
+	    String[] dept = {arrival.getText()};
+	    
+	    String cap = capacity.getText();
+	    String s = source.getText();
+	    String d = dest.getText();
+	    String da = date.getText();
+	    
+	    
+		if (capacity.getText() == "" || source.getText() == "" || dest.getText() == "" || planetype.getText() == "" ||  date.getText() == "" ||  depart.getText() == "" || arrival.getText() == "" || price.getText() == "") {
+			
+		    incomplete.setText("Fill all entries");	
+		}
+		else if (matcher.matches()) {
+             
+			 incomplete.setText("Must be Positive Integer");
+	    }
+		else if(Integer.parseInt(capacity.getText()) < 0) {
+			
+			incomplete.setText("Capacity cannot be Negative");
+			
+		}
+		else if(time.length == arrival.getText().length() || time.length == depart.getText().length()) {
+			
+			for(int i = 7; i < time.length-1; i++) {
+				
+				 if(time[i] == arrive[i] && time[i+1] == arrive[i+1] && arrive[i] != "P") {
+					 
+				 }
+				 else if (time[i] == arrive[i] && time[i+1] == arrive[i+1] && arrive[i] != "A") {
+					 
+				 }
+				 else {
+					 incomplete.setText("Wrong Time format (00:00 AM/PM)");
+				 }
+			}
+		}
+         else if(time2.length == depart.getText().length()) {
+			
+			for(int i = 7; i < time2.length-1; i++) {
+				
+				 if(time2[i] == dept[i] && time2[i+1] == dept[i+1] && dept[i] != "P") {
+					 
+				 }
+				 else if (time2[i] == dept[i] && time2[i+1] == dept[i+1] && dept[i] != "A") {
+					 
+				 }
+				 else {
+					 incomplete.setText("Wrong Time format (00:00 AM/PM)");
+				 }
+			}
+		}
+         else if(Date.length != da.length()) {
+ 			
+ 			  System.out.println( da.length());
+ 			 System.out.println( da);
+ 			 System.out.println( Date.length);
+ 			  incomplete.setText("Wrong Date format (00-00-00)");
+ 			
+ 		}
+        else if(source.getText() == dest.getText()) {
+			
+        	 incomplete.setText("Source and Destination cannot be equal");
+		}
+        else if(depart.getText() == arrival.getText()) {
+			
+       	 incomplete.setText("Departure and arrival time cannot be equal");
+		}
+        else if(ma.matches()) {
+        	
+        	incomplete.setText("Only Alphabets Allowed");
+        }
+        else if(ma1.matches()) {
+        	
+        	incomplete.setText("Only Alphabets Allowed");
+        }
+        else if (!price.getText().matches(".*PKR.*")) {
+        	incomplete.setText("Invalid Format (000000 PKR)");
+        } 
+		else {
+			
+			int fid = 0;
+			for (int i = 0; i < ARS.getInstance().Flight_list.size(); i++) {
+
+				fid = ARS.getInstance().Flight_list.get(i).getFlightID();
+			}
+
+			fid = fid + 1;
+			ARS.getInstance().AddFlight(fid, Integer.parseInt(capacity.getText()), source.getText(), dest.getText(),
+					planetype.getText(), date.getText(), depart.getText(), arrival.getText(), price.getText());
+			
+			root = FXMLLoader.load(getClass().getResource("adminflights.fxml"));
+			stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			scene = new Scene(root);
+			stage.setScene(scene);
+			stage.show();
+		}
+	}
+
+	public void switchToHome(MouseEvent event) throws IOException {
+
+		root = FXMLLoader.load(getClass().getResource("adminMenu.fxml"));
+		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+
+	public void logout(MouseEvent event) throws IOException {
+
+		root = FXMLLoader.load(getClass().getResource("login.fxml"));
+		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	public void about(MouseEvent event) throws IOException {
+        
+		tempStatic.back = "Addflight.fxml";
+		root = FXMLLoader.load(getClass().getResource("about.fxml"));
+		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+	public void contact(MouseEvent event) throws IOException {
+        
+		tempStatic.back = "Addflight.fxml";
+		root = FXMLLoader.load(getClass().getResource("contact.fxml"));
+		stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		scene = new Scene(root);
+		stage.setScene(scene);
+		stage.show();
+	}
+
+}
